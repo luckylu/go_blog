@@ -2,3 +2,5 @@ lastupdate.tmp
 mem*
 conf/app.conf
 blog
+.DS_Store
+*/.DS_Store

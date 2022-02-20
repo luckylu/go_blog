@@ -1,4 +1,4 @@
-package main
+package models
 
 import (
 	"time"
@@ -52,7 +52,7 @@ func init() {
 	orm.RegisterModel(new(Users), new(Posts), new(Comments))
 
 	// create table
-	orm.RunSyncdb("default", false, true)
+	// orm.RunSyncdb("default", false, true)
 }
 
 func main() {
