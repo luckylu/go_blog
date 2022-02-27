@@ -9,7 +9,8 @@
     <table class="ui celled table">
       <thead>
         <tr>
-          <th>Id</th>
+          <th>ID</th>
+          <th>内容</th>
           <th>创建时间</th>
           <th>操作</th>
         </tr></thead>
