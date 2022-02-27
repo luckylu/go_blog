@@ -19,11 +19,15 @@ func (p *PostsController) New() {
 }
 
 func (p *PostsController) Create() {
+	o := orm.NewOrm()
+
+	use1r := models.Users{Name: "Michael"}
+	_, _, _ = o.ReadOrCreate(&use1r, "Name")
+
 	title := p.GetString("title")
 	content := p.GetString("content")
-	user := models.Users{ID: 1}
+	user := models.Users{Id: 1}
 	post := models.Posts{User: &user, Title: title, Content: content}
-	o := orm.NewOrm()
 	if _, err := o.Insert(&post); err != nil {
 		fmt.Println(err)
 	}
@@ -50,7 +54,7 @@ func (p *PostsController) Update() {
 	title := p.GetString("title")
 	content := p.GetString("content")
 	intid, _ := strconv.Atoi(id)
-	post := models.Posts{ID: intid}
+	post := models.Posts{Id: intid}
 	post.Title = title
 	post.Content = content
 	o := orm.NewOrm()
@@ -64,7 +68,7 @@ func (p *PostsController) Edit() {
 	id := p.Ctx.Input.Param(":id")
 	intid, _ := strconv.Atoi(id)
 	o := orm.NewOrm()
-	post := models.Posts{ID: intid}
+	post := models.Posts{Id: intid}
 	o.Read(&post)
 	p.Data["post"] = &post
 	p.TplName = "admin/posts/edit.tpl"
@@ -74,6 +78,6 @@ func (p *PostsController) Destroy() {
 	id := p.Ctx.Input.Param(":id")
 	intid, _ := strconv.Atoi(id)
 	o := orm.NewOrm()
-	o.Delete(&models.Posts{ID: intid})
+	o.Delete(&models.Posts{Id: intid})
 	p.Redirect("/admin/posts", 302)
 }

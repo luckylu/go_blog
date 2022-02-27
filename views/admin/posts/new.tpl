@@ -1,9 +1,10 @@
-{{template "layout/application.tpl" .}}
+{{template "layout/admin/application.tpl" .}}
 {{define "head"}}
 <title>Admin</title>
 {{end}}
 {{define "body"}}
-<div class="ui grid container">
+<div class="ui grid centered container">
+  <div class="row"></div>
   <div class="three wide column">
   </div>
   <div class="ten wide column">
@@ -15,9 +16,10 @@
       </div>
       <div class="field">
         <label>内容</label>
-        <textarea name="content"></textarea>
+        <textarea name="content" rows="20"></textarea>
       </div>
       <button class="ui primary button" type="submit">创建</button>
+      <a class="ui secondary button" href="/admin/posts">取消</a>
     </form>
   </div>
   <div class="three wide column">

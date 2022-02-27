@@ -5,6 +5,7 @@
 		{{template "head" .}}
 	</head>
 	<body>
+		{{template "layout/sidebar.tpl" .}}
 		{{template "body" .}}
 		{{template "layout/footer.tpl" .}}
 	</body>
