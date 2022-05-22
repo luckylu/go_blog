@@ -11,10 +11,13 @@ import (
 )
 
 type Users struct {
-	Id        int64     `orm:"column(id);auto"`
-	Name      string    `orm:"size(128);column(name)"`
-	CreatedAt time.Time `orm:"column(created_at);auto_now_add;type(datetime)"`
-	UpdatedAt time.Time `orm:"column(updated_at);auto_now;type(datetime)"`
+	Id             int64     `orm:"column(id);auto"`
+	Name           string    `orm:"size(128);column(name)"`
+	Admin          bool      `orm:"column(admin)"`
+	Posts          []*Posts  `orm:"reverse(many)"`
+	PasswordDigest string    `orm:"size(256);column(password_digest)"`
+	CreatedAt      time.Time `orm:"column(created_at);auto_now_add;type(datetime)"`
+	UpdatedAt      time.Time `orm:"column(updated_at);auto_now;type(datetime)"`
 }
 
 func init() {

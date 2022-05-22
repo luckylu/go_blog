@@ -5,11 +5,10 @@ import (
 	"fmt"
 
 	"github.com/beego/beego/v2/client/orm"
-	beego "github.com/beego/beego/v2/server/web"
 )
 
 type HomeController struct {
-	beego.Controller
+	BaseController
 }
 
 func (c *HomeController) Get() {

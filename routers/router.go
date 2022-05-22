@@ -21,4 +21,8 @@ func init() {
 	beego.Router("/admin/posts/:id/destroy", &admin.PostsController{}, "get:Destroy")
 	beego.Router("/admin/comments", &admin.CommentsController{}, "get:Index")
 	beego.Router("/admin/comments/:id/destroy", &admin.CommentsController{}, "get:Destroy")
+
+	beego.Router("/login", &controllers.LoginController{}, "get:ShowLogin;post:HandleLogin")
+	beego.Router("/logout", &controllers.LoginController{}, "get:Logout")
+	beego.Router("/register", &controllers.UsersController{}, "get:ShowRegister;post:HandleRegister")
 }

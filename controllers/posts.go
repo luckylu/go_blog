@@ -6,11 +6,10 @@ import (
 	"strconv"
 
 	"github.com/beego/beego/v2/client/orm"
-	beego "github.com/beego/beego/v2/server/web"
 )
 
 type PostsController struct {
-	beego.Controller
+	BaseController
 }
 
 func (p *PostsController) Show() {
